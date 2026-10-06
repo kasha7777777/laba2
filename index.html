@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PokéDash — арена покемонов</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%23ed4949'/%3E%3Cpath d='M1 16h30a15 15 0 0 1-30 0' fill='white'/%3E%3Cpath d='M1 16h30' stroke='%23212633' stroke-width='3'/%3E%3Ccircle cx='16' cy='16' r='5' fill='white' stroke='%23212633' stroke-width='3'/%3E%3C/svg%3E">
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f3f5f9;color:#222936;font:16px/1.5 system-ui,-apple-system,sans-serif}button,input{font:inherit}button{cursor:pointer;border:0}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #3587db;outline-offset:3px}header{background:#fff;border-bottom:1px solid #e6e9ef}header>div{max-width:1200px;margin:auto;padding:22px 28px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{font-size:26px;font-weight:850;letter-spacing:-1px}.brand span{color:#e54545}.header-label{font-size:14px;color:#687181}main{max-width:1200px;margin:auto;padding:32px 28px}h1{font-size:32px;letter-spacing:-1px;margin:0 0 6px}h2{font-size:20px;margin:0}.intro{color:#687181;margin:0 0 24px}.toolbar{display:flex;gap:12px;margin-bottom:14px}form{display:flex;gap:8px;flex:1}input{width:100%;min-width:0;padding:13px 16px;border:1px solid #d9dee7;border-radius:12px;background:white}.button{padding:12px 20px;border-radius:12px;background:#e54545;color:white;font-weight:650;white-space:nowrap}.secondary{background:white;color:#343d4b;border:1px solid #d9dee7}.quick{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}.chip{border:1px solid #dce1e9;border-radius:24px;background:white;padding:7px 14px;font-size:14px}.chip.active{background:#222936;color:#fff;border-color:#222936}.layout{display:grid;grid-template-columns:360px 1fr;gap:22px;align-items:start}.panel{background:#fff;border:1px solid #e3e7ee;border-radius:20px;padding:24px}.panel-heading{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:20px}.source{font-size:12px;color:#687181;text-decoration:none}.profile{position:relative}.number{font-size:14px;font-weight:600;color:#858d99}.art{height:240px;background:radial-gradient(circle,#ffefaa 0%,#fff8dd 55%,#fff 72%);display:grid;place-items:center;margin:4px 0 14px}.art img{width:220px;height:220px;object-fit:contain}.name{font-size:30px;font-weight:800;letter-spacing:-.7px;margin:0}.latin{color:#778090;font-size:14px;margin-bottom:12px}.types{display:flex;gap:7px;margin-bottom:22px}.badge{font-size:14px;padding:5px 12px;border-radius:8px;background:#ffefac;color:#5b4700}.metrics{display:grid;grid-template-columns:1fr 1fr;gap:12px}.metric{background:#f5f7fa;border-radius:12px;padding:14px}.metric span{display:block;font-size:14px;color:#687181}.metric strong{font-size:22px}.favorite{margin-top:20px;width:100%}.right{display:grid;gap:22px}.stat{display:grid;grid-template-columns:130px 1fr 32px;gap:12px;align-items:center;margin:13px 0;font-size:14px}.track{height:9px;border-radius:10px;background:#edf0f5;overflow:hidden}.fill{height:100%;border-radius:10px;background:#e54545}.stat:nth-child(3n) .fill{background:#ecbb35}.stat:nth-child(3n + 1) .fill{background:#5c82c5}.cards-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.tcg img{width:100%;aspect-ratio:245/342;object-fit:contain;border-radius:8px;transition:transform .2s}.tcg img:hover{transform:translateY(-4px)}.tcg h3{font-size:15px;margin:8px 0 2px}.tcg p{font-size:13px;margin:0;color:#778090}.card-nav{display:flex;justify-content:space-between;align-items:center;margin-top:20px;gap:8px}.card-nav button{padding:8px 14px}.card-nav span{font-size:14px;color:#687181}button:disabled{opacity:.45;cursor:default}.favorites{margin-top:22px}.favorites-list{display:flex;gap:12px;flex-wrap:wrap}.saved{display:flex;align-items:center;gap:8px;background:#f3f5f9;border-radius:12px;padding:6px 8px}.saved img{width:44px;height:44px;object-fit:contain}.saved button{background:transparent;padding:6px}.saved .remove{color:#8b3540}.empty,.message{padding:24px 0;color:#778090}.message.error{color:#b72e3c}.retry{display:block;margin-top:14px}#status{min-height:24px;font-size:14px;color:#687181;margin-bottom:14px}footer{padding:24px 0;font-size:13px;color:#8b93a0;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}footer a{color:inherit}dialog{border:0;border-radius:20px;padding:20px;max-width:480px;width:calc(100% - 40px)}dialog::backdrop{background:#17202d99}dialog img{display:block;width:100%;max-height:70vh;object-fit:contain}dialog button{float:right;margin-bottom:12px}.tcg button{display:block;width:100%;background:none;padding:0}#details-title{clear:both;padding-bottom:12px;font-size:18px}@media(max-width:900px){.layout{grid-template-columns:300px 1fr}.cards-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.panel{padding:20px}}@media(max-width:680px){header>div{padding:18px}.header-label{display:none}main{padding:24px 16px}h1{font-size:28px}.layout{grid-template-columns:1fr}.toolbar{flex-wrap:wrap}form{flex-basis:100%}.toolbar>.button{width:100%}.cards-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.art{height:220px}.stat{grid-template-columns:120px 1fr 28px;gap:8px}}
+
+.arena{display:grid;grid-template-columns:1fr 160px 1fr;gap:22px;align-items:stretch;margin-bottom:22px}.fighter{min-width:0;border-top:4px solid #e54545}.fighter.blue{border-top-color:#437cdc}.fighter.blue .art{background:radial-gradient(circle,#c7e2ff 0%,#eef6ff 55%,#fff 72%)}.arena-center{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center}.vs{font-size:56px;font-weight:900;font-style:italic;letter-spacing:-4px;color:#252d3c}.arena-center .button{width:100%;padding:12px 10px}.arena-center p{font-size:14px;color:#687181}.hp-line{display:flex;justify-content:space-between;font-size:14px;margin:18px 0 7px}.hp-track{height:12px;background:#edf0f5;border-radius:9px;overflow:hidden}.hp-fill{height:100%;background:#4baf86;transition:width .4s}.target{display:flex;gap:8px;margin:20px 0 12px}.target .active{background:#222936;color:white}.battle-layout{display:grid;grid-template-columns:1fr 1fr;gap:22px}.compare-row{display:grid;grid-template-columns:35px 1fr 130px 1fr 35px;gap:8px;align-items:center;margin:17px 0;font-size:14px}.compare-row .fill{background:#e54545}.compare-row .right-bar .fill{background:#437cdc}.compare-row .left-bar{display:flex;justify-content:flex-end}.compare-row .label{text-align:center}.battle-log{max-height:340px;overflow:auto;padding:0;list-style:none;margin:16px 0 0}.battle-log li{padding:10px 0;border-bottom:1px solid #eef0f5;font-size:14px}.battle-result{font-weight:750;font-size:22px;margin-top:6px}.rule{font-size:14px;color:#687181}.fighter.attacking .art img{animation:attack .45s}.fighter.hit .art img{animation:hit .45s}.blue.attacking .art img{animation:attackBlue .45s}@keyframes attack{50%{transform:translateX(24px) rotate(-5deg)}}@keyframes attackBlue{50%{transform:translateX(-24px) rotate(5deg)}}@keyframes hit{25%,75%{opacity:.4;transform:translateX(-7px)}50%{transform:translateX(7px)}}@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}@media(max-width:850px){.arena{grid-template-columns:1fr 120px 1fr;gap:12px}.battle-layout{grid-template-columns:1fr}.fighter .art img{width:170px;height:170px}.fighter .art{height:190px}.fighter .name{font-size:24px}}@media(max-width:600px){.arena{grid-template-columns:1fr 1fr;gap:12px}.arena-center{grid-column:1 / -1;grid-row:2;flex-direction:row;flex-wrap:wrap}.arena-center .vs{font-size:30px}.arena-center .button{width:auto}.arena-center p{flex-basis:100%;margin:0}.fighter{padding:14px}.fighter .art img{width:120px;height:120px}.fighter .art{height:140px}.fighter .panel-heading h2{font-size:16px}.fighter .panel-heading .source{display:none}.fighter .name{font-size:21px}.fighter .metrics{gap:6px}.fighter .metric{padding:8px}.fighter .metric strong{font-size:17px}.fighter .metric span{font-size:12px}.fighter .favorite{font-size:13px;white-space:normal;padding:10px}.fighter .types{flex-wrap:wrap}.compare-row{grid-template-columns:28px 1fr 110px 1fr 28px;font-size:13px;gap:5px}.target button{padding:10px 12px}}
+
+.prediction{margin-bottom:22px;background:#fff8df;border-color:#efdf9e}.prediction-content{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}.prediction h2{font-size:23px}.prediction p{margin:6px 0 0;font-size:14px;color:#746841}.prediction-options{display:flex;gap:10px;flex-wrap:wrap}.prediction-option{padding:12px 20px;border-radius:12px;border:2px solid transparent;background:white;font-weight:700;color:#c73540}.prediction-option.blue-option{color:#3265b2}.prediction-option[aria-pressed="true"]{border-color:currentColor;box-shadow:0 3px 10px #22293612}.prediction-feedback{font-size:16px;font-weight:650;margin-top:12px;min-height:24px}.prediction-feedback.correct{color:#19734f}.prediction-feedback.incorrect{color:#aa3b3b}@media(max-width:600px){.prediction-options{width:100%}.prediction-option{flex:1;padding:10px;font-size:14px}}
+</style>
+</head>
+<body>
+<header><div><a class="brand" href="./" style="color:inherit;text-decoration:none">Poké<span>Dash</span></a><span class="header-label">Твой мир покемонов</span></div></header>
+<main>
+<h1>Арена покемонов</h1><p class="intro">Два соперника. Сравни характеристики — и проверь, кто победит.</p><div class="target"><button class="button secondary active" data-target="0" aria-pressed="true">Красная сторона</button><button class="button secondary" data-target="1" aria-pressed="false">Синяя сторона</button></div>
+<div class="toolbar"><form id="search"><input id="query" aria-label="Имя или номер покемона" placeholder="Имя или номер: pikachu, пикачу, 25" autocomplete="off" required><button class="button" type="submit">Найти</button></form><button class="button secondary" id="random">Случайный покемон</button></div>
+<div class="quick" id="quick"><button class="chip" data-id="25">Пикачу</button><button class="chip" data-id="1">Бульбазавр</button><button class="chip" data-id="4">Чармандер</button><button class="chip" data-id="7">Сквиртл</button><button class="chip" data-id="133">Иви</button><button class="chip" data-id="150">Мьюту</button></div>
+<div id="status" role="status" aria-live="polite"></div>
+<section class="panel prediction" id="prediction" aria-label="Прогноз победителя"></section>
+<div class="arena">
+<section class="panel fighter" id="fighter-0"><div class="panel-heading"><h2>Красная сторона</h2><a class="source" href="https://pokeapi.co">PokéAPI</a></div><div id="profile-0"></div></section>
+<div class="arena-center"><span class="vs" aria-hidden="true">VS</span><button class="button" id="battle-start" disabled>Начать бой</button><button class="button secondary" id="battle-reset">Сбросить бой</button><p>Автоматический бой по ходам</p></div>
+<section class="panel fighter blue" id="fighter-1"><div class="panel-heading"><h2>Синяя сторона</h2><a class="source" href="https://pokeapi.co">PokéAPI</a></div><div id="profile-1"></div></section>
+</div>
+<div class="battle-layout"><section class="panel"><div class="panel-heading"><h2>Сравнение характеристик</h2><span class="source">PokéAPI</span></div><div id="compare"></div></section>
+<section class="panel"><h2>Ход боя</h2><div id="battle-result" class="battle-result" role="status" aria-live="polite">Соперники готовятся</div><p class="rule">Упрощённая симуляция: здоровье, атака, защита и скорость из PokéAPI. Более быстрый покемон ходит первым, урон слегка меняется случайным образом. Типы и приёмы не учитываются.</p><ol class="battle-log" id="battle-log" aria-label="Журнал боя"></ol></section></div>
+<section class="panel" style="margin-top:22px"><div class="panel-heading"><h2>Коллекционные карты</h2><a class="source" href="https://tcgdex.dev">TCGdex</a></div><p class="rule" id="cards-owner">Карты выбранной стороны</p><div id="cards" aria-live="polite"></div></section>
+<section class="panel favorites"><div class="panel-heading"><h2>Избранные покемоны</h2><span class="source">Сохраняются в этом браузере</span></div><div id="favorites"></div></section>
+<footer><span>Учебный проект · Pokémon принадлежит Nintendo, Game Freak и Creatures.</span><span>Данные: <a href="https://pokeapi.co">PokéAPI</a> и <a href="https://tcgdex.dev">TCGdex</a></span></footer>
+</main>
+<dialog id="details"><button class="button secondary" id="close-details">Закрыть</button><h2 id="details-title"></h2><img id="details-image" alt=""></dialog>
+<script>
+'use strict';
+// Безопасное отображение внешних данных.
+const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const aliases = {пикачу:'pikachu',бульбазавр:'bulbasaur',чармандер:'charmander',сквиртл:'squirtle',иви:'eevee',мьюту:'mewtwo'};
+const ruNames = {pikachu:'Пикачу',bulbasaur:'Бульбазавр',charmander:'Чармандер',squirtle:'Сквиртл',eevee:'Иви',mewtwo:'Мьюту'};
+const typeNames = {normal:'Обычный',fire:'Огненный',water:'Водный',electric:'Электрический',grass:'Травяной',ice:'Ледяной',fighting:'Боевой',poison:'Ядовитый',ground:'Земляной',flying:'Летающий',psychic:'Психический',bug:'Насекомый',rock:'Каменный',ghost:'Призрачный',dragon:'Драконий',dark:'Тёмный',steel:'Стальной',fairy:'Волшебный'};
+const statNames = ['Здоровье','Атака','Защита','Спец. атака','Спец. защита','Скорость'];
+const rarityNames = {Common:'Обычная',Uncommon:'Необычная',Rare:'Редкая','Rare Holo':'Редкая голографическая','Ultra Rare':'Ультраредкая','Secret Rare':'Секретная редкая'};
+const title = name => name.charAt(0).toUpperCase() + name.slice(1);
+const displayName = p => ruNames[p.name] || title(p.name);
+const artwork = p => p.sprites.other?.['official-artwork']?.front_default || p.sprites.front_default;
+const safeImage = url => {try {return new URL(url).protocol === 'https:' ? url : '';} catch {return '';}};
+// Общий HTTP-клиент: таймаут, проверка HTTP-ошибок и кэширование.
+class ApiClient {
+  constructor(base) {this.base=base;this.cache=new Map();}
+  async get(path) {
+    if(this.cache.has(path)) return this.cache.get(path);
+    const controller=new AbortController();
+    const timer=setTimeout(()=>controller.abort(),20000);
+    try {
+      const response=await fetch(this.base+path,{signal:controller.signal});
+      if(!response.ok) {const error=new Error('HTTP '+response.status);error.status=response.status;throw error;}
+      const data=await response.json();this.cache.set(path,data);return data;
+    } finally {clearTimeout(timer);}
+  }
+}
+// Базовый класс виджета; наследники переопределяют render().
+class Widget {
+  constructor(id) {this.el=document.getElementById(id);}
+  loading(text='Загружаем данные…') {this.el.innerHTML='<div class="message">'+esc(text)+'</div>';this.el.setAttribute('aria-busy','true');}
+  render(html) {this.el.innerHTML=html;this.el.removeAttribute('aria-busy');}
+  error(message,retry) {this.render('<div class="message error">'+esc(message)+'</div>');if(retry){const button=document.createElement('button');button.className='button secondary retry';button.textContent='Повторить';button.onclick=retry;this.el.append(button);}}
+}
+class ProfileWidget extends Widget {
+  constructor(id,app) {super(id);this.app=app;}
+  render(p) {
+    super.render(`<div class="number">№ ${String(p.id).padStart(4,'0')}</div><div class="art"><img src="${esc(safeImage(artwork(p)))}" alt="${esc(displayName(p))}"></div><h3 class="name">${esc(displayName(p))}</h3><div class="latin">${esc(title(p.name))}</div><div class="types">${p.types.map(t=>`<span class="badge">${esc(typeNames[t.type.name]||t.type.name)}</span>`).join('')}</div><div class="metrics"><div class="metric"><span>Рост</span><strong>${(p.height/10).toLocaleString('ru-RU')} м</strong></div><div class="metric"><span>Вес</span><strong>${(p.weight/10).toLocaleString('ru-RU')} кг</strong></div></div><button class="button secondary favorite">${this.app.favorites.has(p.id)?'★ Удалить из избранного':'☆ Добавить в избранное'}</button>`);
+    this.el.querySelector('.favorite').onclick=()=>{this.app.favorites.toggle(p);this.render(p);};
+  }
+}
+class StatsWidget extends Widget {
+  render(p) {super.render(p.stats.map((s,i)=>`<div class="stat"><span>${statNames[i]||esc(s.stat.name)}</span><div class="track"><div class="fill" style="width:${Math.max(0,Math.min(100,s.base_stat/255*100))}%"></div></div><strong>${esc(s.base_stat)}</strong></div>`).join(''));}
+}
+// Второй независимый API. Загружаем карты и подробности выбранной страницы.
+class CardsWidget extends Widget {
+  constructor(id,client) {super(id);this.client=client;this.version=0;this.page=0;this.list=[];}
+  async load(name) {
+    const version=++this.version;this.page=0;this.loading('Ищем коллекционные карты…');
+    try {
+      const list=await this.client.get('cards?name='+encodeURIComponent(title(name.split('-')[0])));
+      if(version!==this.version)return;
+      this.list=list.filter(c=>c.image);await this.showPage(0,version);
+    } catch {if(version===this.version)this.error('Не удалось получить карты. Проверь подключение и попробуй ещё раз.',()=>this.load(name));}
+  }
+  async showPage(page,version=this.version) {
+    const request=this.pageRequest=(this.pageRequest||0)+1;this.loading('Загружаем карты…');
+    const start=page*3;const items=this.list.slice(start,start+3);
+    if(!items.length){this.render('<div class="empty">Для этого покемона карты с изображениями не найдены.</div>');return;}
+    const results=await Promise.allSettled(items.map(c=>this.client.get('cards/'+encodeURIComponent(c.id))));
+    if(version!==this.version||request!==this.pageRequest)return;
+    this.page=page;
+    this.render(`<div class="cards-grid">${items.map((c,i)=>{const d=results[i].status==='fulfilled'?results[i].value:null;return `<article class="tcg"><button data-card="${i}" aria-label="Открыть карту ${esc(c.name)}"><img src="${esc(safeImage(c.image+'/low.webp'))}" alt="${esc(c.name)}" loading="lazy"></button><h3>${esc(c.name)}</h3><p>${esc(d?.set?.name||'Набор не загрузился')}</p><p>${esc(d?(rarityNames[d.rarity]||d.rarity||'Редкость не указана'):'Повтори загрузку для подробностей')}</p></article>`;}).join('')}</div><div class="card-nav"><button class="button secondary" id="prev" ${page===0?'disabled':''}>Назад</button><span>${start+1}–${Math.min(start+3,this.list.length)} из ${this.list.length}</span><button class="button secondary" id="next" ${start+3>=this.list.length?'disabled':''}>Далее</button></div>`);
+    this.el.querySelector('#prev').onclick=()=>this.showPage(page-1);
+    this.el.querySelector('#next').onclick=()=>this.showPage(page+1);
+    this.el.querySelectorAll('[data-card]').forEach(button=>button.onclick=()=>{const c=items[Number(button.dataset.card)];document.getElementById('details-title').textContent=c.name;const image=document.getElementById('details-image');image.src=safeImage(c.image+'/high.webp');image.alt=c.name;document.getElementById('details').showModal();});
+  }
+}
+class FavoritesWidget extends Widget {
+  constructor(id,select,onChange) {
+    super(id);this.select=select;this.onChange=onChange;
+    try {const stored=JSON.parse(localStorage.getItem('pokedash-favorites')||'[]');this.items=Array.isArray(stored)?stored.filter(p=>Number.isInteger(p.id)&&typeof p.name==='string'):[];} catch {this.items=[];}
+    this.render();
+  }
+  has(id) {return this.items.some(p=>p.id===id);}
+  toggle(p) {
+    this.items=this.has(p.id)?this.items.filter(x=>x.id!==p.id):[...this.items,{id:p.id,name:p.name,image:artwork(p)}];
+    try {localStorage.setItem('pokedash-favorites',JSON.stringify(this.items));}catch{document.getElementById('status').textContent='Избранное доступно до закрытия страницы: браузер запретил сохранение.';}
+    this.render();this.onChange?.();
+  }
+  render() {
+    super.render(this.items.length?`<div class="favorites-list">${this.items.map(p=>`<div class="saved"><button data-select="${p.id}"><img src="${esc(safeImage(p.image))}" alt=""><span>${esc(displayName(p))}</span></button><button class="remove" data-remove="${p.id}" aria-label="Удалить ${esc(displayName(p))}">✕</button></div>`).join('')}</div>`:'<div class="empty">Здесь будут покемоны, которых ты добавишь в избранное.</div>');
+    this.el.querySelectorAll('[data-select]').forEach(b=>b.onclick=()=>this.select(b.dataset.select));
+    this.el.querySelectorAll('[data-remove]').forEach(b=>b.onclick=()=>this.toggle(this.items.find(p=>p.id===Number(b.dataset.remove))));
+  }
+}
+// Профили соперников наследуют общий виджет.
+class FighterWidget extends ProfileWidget {
+  constructor(id,app,side){super(id,app);this.side=side;}
+  render(p){
+    super.render(p);
+    const health=document.createElement('div');
+    health.innerHTML=`<div class="hp-line"><span>Здоровье</span><strong id="hp-${this.side}"></strong></div><div class="hp-track"><div class="hp-fill" id="hp-fill-${this.side}"></div></div>`;
+    this.el.append(health);
+    this.updateHealth(this.app.battle?.health[this.side] ?? BattleEngine.maxHealth(p),BattleEngine.maxHealth(p));
+  }
+  updateHealth(hp,max){
+    const label=document.getElementById('hp-'+this.side),bar=document.getElementById('hp-fill-'+this.side);
+    if(!label||!bar)return;
+    label.textContent=hp+' / '+max;bar.style.width=(hp/max*100)+'%';bar.style.background=hp/max<.25?'#e54545':'#4baf86';
+  }
+}
+class ComparisonWidget extends Widget {
+  render(pair){
+    if(!pair.every(Boolean)){super.render('<div class="empty">Выбери двух покемонов для сравнения.</div>');return;}
+    super.render(pair[0].stats.map((s,i)=>{const a=s.base_stat,b=pair[1].stats[i].base_stat;return `<div class="compare-row"><strong>${a}</strong><div class="track left-bar"><div class="fill" style="width:${a/255*100}%"></div></div><span class="label">${statNames[i]}</span><div class="track right-bar"><div class="fill" style="width:${b/255*100}%"></div></div><strong>${b}</strong></div>`;}).join(''));
+  }
+}
+// Чистая модель боя. UI обновляется через callback, данные API не меняются.
+class BattleEngine {
+  static stat(p,name){return p.stats.find(s=>s.stat.name===name)?.base_stat||1;}
+  static maxHealth(p){return BattleEngine.stat(p,'hp')*2+60;}
+  constructor(pair,onTurn,onFinish,rng=Math.random){
+    this.pair=pair;this.onTurn=onTurn;this.onFinish=onFinish;this.rng=rng;
+    this.health=pair.map(BattleEngine.maxHealth);this.turn=0;this.running=false;this.timer=null;
+    const a=BattleEngine.stat(pair[0],'speed'),b=BattleEngine.stat(pair[1],'speed');
+    this.next=a===b?(rng()<.5?0:1):(a>b?0:1);
+  }
+  start(){if(this.running||this.health.some(h=>h<=0))return;this.running=true;this.tick();}
+  tick(){
+    if(!this.running)return;
+    const attacker=this.next,defender=1-attacker;
+    const attack=BattleEngine.stat(this.pair[attacker],'attack'),defense=BattleEngine.stat(this.pair[defender],'defense');
+    const damage=Math.max(5,Math.floor((16*attack/Math.max(1,defense)+8)*(.85+this.rng()*.3)));
+    const dealt=Math.min(damage,this.health[defender]);this.health[defender]-=dealt;this.turn++;
+    this.onTurn({attacker,defender,damage:dealt,health:[...this.health],turn:this.turn});
+    if(this.health[defender]===0){this.running=false;this.onFinish(attacker);return;}
+    this.next=defender;this.timer=setTimeout(()=>this.tick(),950);
+  }
+  stop(){this.running=false;clearTimeout(this.timer);}
+}
+// Прогноз — отдельный игровой виджет с выбором, блокировкой и результатом.
+class PredictionWidget extends Widget {
+  constructor(id,onChange){super(id);this.onChange=onChange;this.choice=null;this.locked=false;this.pair=[null,null];this.outcome=null;}
+  update(pair){this.pair=pair;this.render();}
+  reset(){this.choice=null;this.locked=false;this.outcome=null;this.render();}
+  choose(side){
+    if(this.locked||!this.pair.every(Boolean)||![0,1].includes(side))return;
+    this.choice=side;this.outcome=null;this.render();this.onChange();
+  }
+  lock(){this.locked=true;this.outcome=null;this.render();}
+  finish(winner){this.outcome={correct:this.choice===winner,winner};this.choice=null;this.locked=false;this.render();this.onChange();}
+  render(){
+    const ready=this.pair.every(Boolean);
+    let message=this.outcome?(this.outcome.correct?'Точно! Ты угадала победителя.':'В этот раз победил другой соперник. Попробуй ещё раз!'):(this.locked?'Прогноз принят. Смотрим бой!':this.choice!==null?'Твой выбор: '+displayName(this.pair[this.choice])+'. Теперь запускай бой.':'Выбери победителя перед началом боя.');
+    super.render(`<div class="prediction-content"><div><h2>Кто победит?</h2><p>Посмотри на характеристики и сделай свой прогноз.</p></div><div class="prediction-options" role="group" aria-label="Выбери победителя">${[0,1].map(side=>`<button class="prediction-option ${side===1?'blue-option':''}" data-prediction="${side}" aria-pressed="${this.choice===side}" ${!ready||this.locked?'disabled':''}>${side===0?'Красная':'Синяя'} сторона${this.pair[side]?' · '+esc(displayName(this.pair[side])):''}</button>`).join('')}</div></div><div class="prediction-feedback ${this.outcome?(this.outcome.correct?'correct':'incorrect'):''}" role="status" aria-live="polite">${esc(ready?message:'Загружаем соперников…')}</div>`);
+    this.el.querySelectorAll('[data-prediction]').forEach(b=>b.onclick=()=>this.choose(Number(b.dataset.prediction)));
+  }
+}
+class Dashboard {
+  constructor(){
+    this.api=new ApiClient('https://pokeapi.co/api/v2/');this.pair=[null,null];this.versions=[0,0];this.target=0;this.battle=null;
+    this.prediction=new PredictionWidget('prediction',()=>this.syncStartButton());
+    this.profiles=[new FighterWidget('profile-0',this,0),new FighterWidget('profile-1',this,1)];
+    this.compare=new ComparisonWidget('compare');this.cards=new CardsWidget('cards',new ApiClient('https://api.tcgdex.net/v2/en/'));
+    this.favorites=new FavoritesWidget('favorites',id=>this.select(id,this.target),()=>this.pair.forEach((p,i)=>{if(p)this.profiles[i].render(p);}));
+    document.getElementById('search').onsubmit=e=>{e.preventDefault();this.select(document.getElementById('query').value,this.target);};
+    document.getElementById('random').onclick=()=>this.select(Math.floor(Math.random()*1025)+1,this.target);
+    document.querySelectorAll('[data-id]').forEach(b=>b.onclick=()=>this.select(b.dataset.id,this.target));
+    document.querySelectorAll('[data-target]').forEach(b=>b.onclick=()=>this.setTarget(Number(b.dataset.target)));
+    document.getElementById('close-details').onclick=()=>document.getElementById('details').close();
+    document.getElementById('battle-start').onclick=()=>this.startBattle();
+    document.getElementById('battle-reset').onclick=()=>this.resetBattle();
+    this.select(25,0);this.select(133,1);
+  }
+  setTarget(side){this.target=side;document.querySelectorAll('[data-target]').forEach(b=>{const active=Number(b.dataset.target)===side;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active));});this.updateCards();this.updateQuick();}
+  updateQuick(){document.querySelectorAll('[data-id]').forEach(b=>b.classList.toggle('active',Number(b.dataset.id)===this.pair[this.target]?.id));}
+  updateCards(){
+    const p=this.pair[this.target];this.cards.version++;
+    document.getElementById('cards-owner').textContent=p?'Карты: '+displayName(p)+' · '+(this.target===0?'красная':'синяя')+' сторона':'Карты появятся после загрузки выбранного соперника.';
+    if(p)this.cards.load(p.name);else this.cards.render('<div class="empty">Сначала выбери покемона.</div>');
+  }
+  async select(input,side=this.target){
+    const query=String(input).trim().toLowerCase(),key=aliases[query]||query;
+    if(!/^[a-z0-9-]+$/.test(key)){document.getElementById('status').textContent='Введи английское имя или номер. Русский поиск доступен для покемонов на кнопках выше.';return;}
+    const version=++this.versions[side];this.pair[side]=null;this.resetBattle();this.profiles[side].loading();this.compare.render(this.pair);this.updateQuick();
+    if(side===this.target)this.updateCards();
+    document.getElementById('status').textContent='';
+    try{
+      const p=await this.api.get('pokemon/'+encodeURIComponent(key)+'/');if(version!==this.versions[side])return;
+      this.pair[side]=p;this.resetBattle();this.profiles[side].render(p);this.compare.render(this.pair);this.updateQuick();if(side===this.target)this.updateCards();
+    }catch(error){
+      if(version!==this.versions[side])return;
+      this.profiles[side].error(error.status===404?'Покемон не найден. Проверь имя или номер.':'PokéAPI не отвечает. Проверь интернет и повтори запрос.',()=>this.select(key,side));
+    }
+  }
+  syncStartButton(){
+    const button=document.getElementById('battle-start');
+    button.disabled=!this.pair.every(Boolean)||this.prediction.choice===null||!!this.battle?.running;
+  }
+  resetBattle(clearPrediction=true){
+    this.battle?.stop();this.battle=null;
+    document.querySelectorAll('.fighter').forEach(el=>el.classList.remove('hit','attacking'));
+    this.pair.forEach((p,i)=>{if(p)this.profiles[i].updateHealth(BattleEngine.maxHealth(p),BattleEngine.maxHealth(p));});
+    document.getElementById('battle-log').replaceChildren();document.getElementById('battle-result').textContent=this.pair.every(Boolean)?'Соперники готовы':'Соперники готовятся';
+    if(clearPrediction)this.prediction.reset();this.prediction.update(this.pair);this.syncStartButton();document.getElementById('battle-start').textContent='Начать бой';
+  }
+  startBattle(){
+    if(!this.pair.every(Boolean)||this.battle?.running||this.prediction.choice===null)return;
+    this.resetBattle(false);this.prediction.lock();document.getElementById('battle-start').disabled=true;
+    this.battle=new BattleEngine([...this.pair],turn=>{
+      turn.health.forEach((hp,i)=>this.profiles[i].updateHealth(hp,BattleEngine.maxHealth(this.pair[i])));
+      document.querySelectorAll('.fighter').forEach(el=>el.classList.remove('hit','attacking'));
+      const attacker=document.getElementById('fighter-'+turn.attacker),defender=document.getElementById('fighter-'+turn.defender);
+      void attacker.offsetWidth;attacker.classList.add('attacking');defender.classList.add('hit');
+      document.getElementById('battle-result').textContent='Ход '+turn.turn;
+      const line=document.createElement('li');line.textContent=turn.turn+'. '+displayName(this.pair[turn.attacker])+' атакует '+displayName(this.pair[turn.defender])+': −'+turn.damage+' здоровья.';
+      const log=document.getElementById('battle-log');log.append(line);log.scrollTop=log.scrollHeight;
+    },winner=>{document.getElementById('battle-result').textContent='Победитель: '+displayName(this.pair[winner])+' ('+(winner===0?'красная':'синяя')+' сторона)';this.prediction.finish(winner);document.getElementById('battle-start').textContent='Реванш';});
+    this.battle.start();
+  }
+}
+const dashboard=new Dashboard();
+</script>
+</body>
+</html>
